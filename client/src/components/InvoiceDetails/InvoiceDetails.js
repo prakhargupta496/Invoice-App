@@ -176,6 +176,9 @@ const InvoiceDetails = () => {
         console.log(error)
         setSendStatus('error')
       })
+  .catch(error => {
+    console.log(error);
+  })
   }
 
 

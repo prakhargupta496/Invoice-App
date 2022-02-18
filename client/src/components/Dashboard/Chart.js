@@ -28,6 +28,7 @@ function Chart({ paymentHistory }) {
   ];
   const options = {
     chart: {
+      id: "basic-bar",
       zoom: { enabled: false },
       toolbar: {show: false},
     },

@@ -257,7 +257,7 @@ const Invoice = () => {
                         <Typography variant="overline" style={{color: 'gray'}} >Invoice#: </Typography>
                         <InputBase defaultValue={invoiceData.invoiceNumber}/>
                     </Grid>
-                </Grid >
+                </Grid>
             </Container>
             <Divider />
             <Container>
@@ -407,7 +407,7 @@ const Invoice = () => {
                                     'aria-label': 'change date',
                                 }}
                             />
-                        </ MuiPickersUtilsProvider>
+                        </MuiPickersUtilsProvider>
                     </Grid>
                     <Grid item style={{ width: 270, marginRight: 10 }}>
                         <Autocomplete

@@ -22,16 +22,20 @@ const Dashboard = () => {
     // const unpaid = invoices?.filter((invoice) => (invoice.status === 'Unpaid') || (invoice.status === 'Partial'))
     const overDue = invoices?.filter((invoice) => invoice.dueDate <= new Date().toISOString())
 
-
+    console.log("heelo");
     let paymentHistory = []
     for(let i = 0; i < invoices.length; i++) {
+        console.log("heelo");
         let history = []
         if(invoices[i].paymentRecords !== undefined) {
             history = [...paymentHistory, invoices[i].paymentRecords]
+            
             paymentHistory = [].concat.apply([], history);
         }
         
     }
+    console.log("paymentHistory");
+    console.log(paymentHistory);
 
 
     //sort payment history by date
@@ -46,6 +50,7 @@ const Dashboard = () => {
     for(let i = 0; i < invoices.length; i++) {
         if(invoices[i].totalAmountReceived !== undefined) {
             totalPaid += invoices[i].totalAmountReceived
+            console.log(totalPaid)
         }
         
     }
@@ -95,7 +100,7 @@ const Dashboard = () => {
                         <li className={styles.listItem} style={{backgroundColor: '#1976d2', color: 'white'}}>
                             <div>
                                 <p>{toCommas(totalPaid)}</p>
-                                <h2 style={{color: 'white'}}>Payment Received</h2>
+                                <h2 style={{color: 'white'}}>Payment Received </h2>
                             </div>
                             <div>
                                 <Check />
@@ -206,7 +211,7 @@ const Dashboard = () => {
                             <tr  className={styles.tableRow} key={record._id}>
                                 <td><button>{record?.paidBy?.charAt(0)}</button></td>
                                 <td>{record.paidBy}</td>
-                                <td>{moment(record.datePaid).format('MMMM Do YYYY')}</td>
+                                <td>{moment(record.datePaid).format('MMMM Do YYYY, h:mm:ss a')}</td>
                                 <td><h3 style={{color: '#00A86B', fontSize: '14px'}} >{toCommas(record.amountPaid)}</h3></td>
                                 <td>{record.paymentMethod}</td>
                                 <td>{record.note}</td>
